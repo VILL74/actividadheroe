@@ -4,7 +4,8 @@
             <h1>col-8</h1>
         </div>
         <div class="col-4">
-            <app-new-heroe></app-new-heroe>
+            <app-new-heroe *ngIf="create"></app-new-heroe>
+            <app-edit-heroe *ngIf="!create"></app-edit-heroe>
         </div>
 
     </div>
