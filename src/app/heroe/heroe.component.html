@@ -1,4 +1,30 @@
-<div class="card">
-    <p>{{ hero.name }}</p>
+<div class="position-relative">
+    <div class="card mb-4">
+        <div class="m-3 d-flex justify-content-center">
+            <img class="img-fluid rounded-3 photo"
+                 src="https://th.bing.com/th/id/OIP.UkpNbh7MYebnkCRDD5pszQHaFP?rs=1&pid=ImgDetMain" alt="Hero">
+        </div>
+        <div class="text-center mx-3">
+            <p class="mb-0 fw-bold">{{ hero.name }}</p>
+            <p class="text-muted subtitle">{{ hero.universe }}</p>
+        </div>
+        <div class="mx-3 mb-3 d-flex align-items-center ">
+        <span class="badge bg-primary d-flex justify-content-center align-items-center">
+            <i class="bi bi-telephone"></i>
+        </span>
+            <p class="mb-0 ms-2">{{ hero.power }}</p>
+        </div>
+        <div class="mx-3 mb-3 d-flex align-items-center ">
+        <span class="badge bg-primary d-flex justify-content-center align-items-center">
+            <i class="bi bi-telephone"></i>
+        </span>
+            <p class="mb-0 ms-2">{{ hero.power }}</p>
+        </div>
+
+    </div>
+    <div class="position-absolute options">
+        <i class="bi bi-pencil-square ms-3"></i>
+        <i class="bi bi-trash ms-3"></i>
+    </div>
 </div>
 
