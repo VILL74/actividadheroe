@@ -1,9 +1,11 @@
 <div class="container-fluid">
+    <button class="btn btn-primary w-100 mt-3" (click)="showFormCreate()">Crear</button>
+
     <div class="row">
-        <div class="col-8">
+        <div class="col-8 mt-3">
             <div class="row">
                 <div class="col-4" *ngFor="let hero of heroes">
-                    <app-heroe [hero]="hero"></app-heroe>
+                    <app-heroe [hero]="hero" (emitEditHero)="editHero($event)"></app-heroe>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ import {SuperHero} from "./superheroe";
 })
 export class AppComponent {
     title = 'superheroe';
-    create = false;
+    create = true;
     heroes: SuperHero[] = [
         {
             id: 1,
@@ -36,4 +36,12 @@ export class AppComponent {
         }
     ]
 
+    editHero(hero: SuperHero) {
+        this.create = false;
+        console.log('editHero', hero)
+    }
+
+    showFormCreate() {
+        this.create = true
+    }
 }
