@@ -35,13 +35,23 @@ export class AppComponent {
             universe: 'Marvel'
         }
     ]
+    hero: SuperHero = {} as SuperHero;
 
     editHero(hero: SuperHero) {
         this.create = false;
-        console.log('editHero', hero)
+        this.hero = hero;
     }
 
     showFormCreate() {
         this.create = true
+    }
+
+    update(h: SuperHero) {
+        this.heroes = this.heroes.map((hero: SuperHero) => {
+            if (hero.id === h.id) {
+                return h;
+            }
+            return hero;
+        });
     }
 }
