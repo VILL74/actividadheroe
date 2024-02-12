@@ -8,10 +8,46 @@ import {SuperHero} from "../superheroe";
 })
 export class EditHeroeComponent {
     @Input() hero: SuperHero = {} as SuperHero;
-    @Output() emitEditHero: EventEmitter<SuperHero> = new EventEmitter<SuperHero>
+    @Output() updateHero: EventEmitter<SuperHero> = new EventEmitter<SuperHero>
 
-    updateHero() {
-        this.emitEditHero.emit(this.hero);
+    selectedImage: File | null = null;
+
+  constructor() { }
+
+  updateHeroWithImage() {
+    if (this.selectedImage) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.selectedImage);
+      reader.onload = () => {
+        this.hero.image = reader.result as string;
+        this.updateHero.emit(this.hero);
+        this.resetHero();
+      };
+    } else {
+      this.updateHero.emit(this.hero);
+      this.resetHero();
     }
+  }
 
+  resetHero() {
+    this.hero = {
+      id: 0,
+      name: '',
+      power: '',
+      universe: '',
+      image: ''
+    };
+    this.selectedImage = null;
+  }
+
+  onImageSelected(event: any) {
+    this.selectedImage = event.target.files[0];
+  }
+    
+
+    
 }
+
+///updateHero() {
+//    this.emitEditHero.emit(this.hero);
+//}

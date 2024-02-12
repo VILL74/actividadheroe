@@ -1,20 +1,25 @@
 
 <div class="card my-3">
-    <h2 class="title text-center fs-5 fw-medium my-3">Nuevo Hero</h2>
+    <h2 class="title text-center fs-5 fw-medium my-3">Nuevo Heroe</h2>
     <form class="m-3">
         <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="name" placeholder="Nombre del hero">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre del heroe"  [(ngModel)]="newHero.name"  >
         </div>
         <div class="mb-3">
             <label for="power" class="form-label">Poder</label>
-            <input type="text" class="form-control" id="power" placeholder="Poder del hero">
+            <input type="text" class="form-control" id="power" name="power" placeholder="Poder del heroe" [(ngModel)]="newHero.power" >
         </div>
         <div class="mb-3">
             <label for="universe" class="form-label">Universo</label>
-            <input type="text" class="form-control" id="universe" placeholder="Universo del hero">
+            <input type="text" class="form-control" id="universe" name="universe" placeholder="Universo del heroe" [(ngModel)]="newHero.universe">
         </div>
-        <button class="btn btn-primary w-100">Crear</button>
+        <div class="mb-3">
+            <label for="image" class="form-label">Foto del Heroe</label>
+            <input type="file" class="form-control" id="image" name="image" placeholder="Universo del heroe" (change)="onImageSelected($event)"  [(ngModel)]="newHero.image">
+        </div>
+        
+        <button  class="btn btn-primary w-100"(click)="addHeroImage()" >Crear</button>
     </form>
 </div>
 

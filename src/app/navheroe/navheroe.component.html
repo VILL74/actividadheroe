@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid ">
+    <a class="navbar-brand titulo">Super Heroes <a class="subtitulo">bd super</a></a>
+
+      <div class="search-input position-relative">
+        <input type="search" class="form-control form-control-lg ps-5  search" placeholder="Buscar" name="criterio"
+          [(ngModel)]="criterio" (input)="buscar()">
+        <i class="bi bi-search search-icon position-absolute top-50 translate-middle-y"  viewBox="0 0 20 20"></i>
+      </div>
+
+    <button class="btn btn-primary btn-derecha" (click)="onMostrar()">Crear</button>
+  </div>
+</nav>

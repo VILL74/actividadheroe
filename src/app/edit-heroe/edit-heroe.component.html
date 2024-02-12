@@ -1,19 +1,24 @@
 <div class="card my-3 ">
-  <h2 class="title text-center fs-5 fw-medium my-3">Actualizar Hero</h2>
+  <h2 class="title text-center fs-5 fw-medium my-3">Actualizar Heroe</h2>
   <form class="m-3">
     <div class="mb-3">
       <label for="name" class="form-label">Nombre</label>
-      <input type="text" name="name" class="form-control" id="name" placeholder="Nombre del hero" [(ngModel)]="hero.name">
+      <input type="text" name="name" class="form-control" id="name" placeholder="Nombre del heroe" [(ngModel)]="hero.name">
     </div>
     <div class="mb-3">
       <label for="power" class="form-label">Poder</label>
-      <input type="text" name="power" class="form-control" id="power" placeholder="Poder del hero" [(ngModel)]="hero.power">
+      <input type="text" name="power" class="form-control" id="power" placeholder="Poder del heroe" [(ngModel)]="hero.power">
     </div>
     <div class="mb-3">
       <label for="universe" class="form-label">Universo</label>
-      <input type="text" name="universe" class="form-control" id="universe" placeholder="Universo del hero" [(ngModel)]="hero.universe">
+      <input type="text" name="universe" class="form-control" id="universe" placeholder="Universo del heroe" [(ngModel)]="hero.universe">
     </div>
-    <button class="btn btn-primary w-100" (click)="updateHero()">Actualizar</button>
+    <div class="mb-3">
+      <label for="image" class="form-label">Imagen del Héroe</label>
+      <input type="file" class="form-control" id="image" name="image" (change)="onImageSelected($event)">
+    </div>
+    
+    <button class="btn btn-primary w-100" (click)="updateHeroWithImage()">Actualizar</button>
   </form>
 </div>
 

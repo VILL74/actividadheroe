@@ -1,8 +1,7 @@
 <div class="position-relative">
     <div class="card mb-4">
         <div class="m-3 d-flex justify-content-center">
-            <img class="img-fluid rounded-3 photo"
-                 src="https://th.bing.com/th/id/OIP.UkpNbh7MYebnkCRDD5pszQHaFP?rs=1&pid=ImgDetMain" alt="Hero">
+            <img class="img-fluid rounded-3 photo" [src]="hero.image" alt="Hero Image">
         </div>
         <div class="text-center mx-3">
             <p class="mb-0 fw-bold">{{ hero.name }}</p>
@@ -24,7 +23,7 @@
     </div>
     <div class="position-absolute options">
         <i class="bi bi-pencil-square ms-3" (click)="editHero(hero)"></i>
-        <i class="bi bi-trash ms-3"></i>
+        <i class="bi bi-trash ms-3" (click)="onDeleteHero()" ></i>
     </div>
 </div>
 

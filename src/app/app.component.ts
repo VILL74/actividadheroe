@@ -9,32 +9,15 @@ import {SuperHero} from "./superheroe";
 export class AppComponent {
     title = 'superheroe';
     create = true;
+    mostrarHeroesOriginales: boolean = true;
     heroes: SuperHero[] = [
-        {
-            id: 1,
-            name: 'Batman',
-            power: 'Money',
-            universe: 'DC'
-        },
-        {
-            id: 2,
-            name: 'Superman',
-            power: 'Super strength',
-            universe: 'DC'
-        },
-        {
-            id: 3,
-            name: 'SpiderMan',
-            power: 'Spider senses',
-            universe: 'Marvel'
-        },
-        {
-            id: 4,
-            name: 'Iron Man',
-            power: 'Iron suit',
-            universe: 'Marvel'
-        }
+        
     ]
+    heroesFiltrados: SuperHero[] = [];
+    
+    showFormCreate() {
+        this.create = true
+    }
     hero: SuperHero = {} as SuperHero;
 
     editHero(hero: SuperHero) {
@@ -42,16 +25,49 @@ export class AppComponent {
         this.hero = hero;
     }
 
-    showFormCreate() {
-        this.create = true
-    }
+  
 
-    update(h: SuperHero) {
-        this.heroes = this.heroes.map((hero: SuperHero) => {
-            if (hero.id === h.id) {
-                return h;
-            }
-            return hero;
-        });
+    updateHero(updatedHero: SuperHero) {
+        const index = this.heroes.findIndex(hero => hero.id === updatedHero.id);
+        if (index !== -1) {
+          this.heroes[index] = updatedHero;
+        }
+      }
+
+    
+
+  onAddHero(newHero: SuperHero) {
+ 
+    newHero.id = this.heroes.length + 1;
+
+    this.heroes.push(newHero);
+  }
+
+  onDeleteHero(hero: SuperHero) {
+    const index = this.heroes.indexOf(hero);
+    if (index !== -1) {
+      this.heroes.splice(index, 1); // Elimina 1 elemento en la posición index
     }
+  }
+
+
+  buscarHeroes(criterio: string) {
+    if (criterio.trim() === '') {
+        // Si el criterio de búsqueda está vacío, mostrar los héroes originales
+        this.mostrarHeroesOriginales = true;
+    } else {
+        // Lógica para buscar héroes filtrados...
+        const criterioLower = criterio.toLowerCase();
+        this.heroesFiltrados = this.heroes.filter(hero =>
+            hero.name.toLowerCase().includes(criterioLower) ||
+            hero.power.toLowerCase().includes(criterioLower) ||
+            hero.universe.toLowerCase().includes(criterioLower)
+        );
+        // Cuando se realiza una búsqueda, oculta los héroes originales
+        this.mostrarHeroesOriginales = false;
+    }
+}
+
+
+  
 }
